@@ -1,9 +1,10 @@
 import { useState, useCallback, useEffect } from 'react';
 import './App.scss';
-import Header from '../Header/Header';
+import Menu from '../Menu/Menu';
 import Authentication from '../Authentication/Authentication';
 import Recipes from '../Recipes/Recipes';
 import { IRecipe } from '../../@types';
+import Loader from '../Loader/Loader';
 
 function App() {
 	// ------ récupération des recettes depuis l'API ------
@@ -32,10 +33,11 @@ function App() {
 
 	return (
 		<div className="app">
-			<Header recipes={recipes} />
+			<Menu recipes={recipes} />
 			<div className="container">
 				<Authentication />
-				<Recipes recipes={recipes} isLoaded={recipesLoaded} />
+				{!recipesLoaded && <Loader />}
+				<Recipes recipes={recipes} />
 			</div>
 		</div>
 	);

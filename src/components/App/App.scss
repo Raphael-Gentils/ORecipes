@@ -9,8 +9,9 @@
   grid-template-columns: repeat(4, 25%);
   grid-template-rows: auto;
   grid-template-areas: 
-    'header form form form'
-    'header main main main';
+    'menu form form form'
+    'menu main main main'
+    'menu main main main';
 }
 
 .container {
