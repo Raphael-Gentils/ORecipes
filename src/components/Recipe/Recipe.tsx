@@ -1,14 +1,19 @@
+import { IRecipe } from '../../@types';
 import './Recipe.scss';
 
-export default function Recipe() {
+interface RecipeProps {
+	recipe: IRecipe;
+}
+
+export default function Recipe({ recipe }: RecipeProps) {
 	return (
-		<>
-			<div className="recipe">
-				<img src="" alt="la recette" />
-				<h2 className="title">Titre de la recette</h2>
-				<h3 className="subtitle">Difficulté : Facile</h3>
+		<div className="recipe">
+			<img src={recipe.thumbnail} alt={recipe.title} />
+			<div className="description">
+				<h2 className="title">{recipe.title}</h2>
+				<p className="subtitle">Difficulté : {recipe.difficulty}</p>
 				<button type="button">Voir la recette</button>
 			</div>
-		</>
+		</div>
 	);
 }

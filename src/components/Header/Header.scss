@@ -1,1 +1,8 @@
+@use '../../styles/vars';
 
+.header {
+  grid-area: header;
+  background-color: #042031;
+  padding: 1rem;
+  color: vars.$alt-color;
+}

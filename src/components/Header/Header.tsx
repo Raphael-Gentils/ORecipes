@@ -1,15 +1,17 @@
+import { IRecipe } from '../../@types';
 import './Header.scss';
 
-export default function Header() {
+interface HeaderProps {
+	recipes: IRecipe[];
+}
+
+export default function Header({ recipes }: HeaderProps) {
 	return (
-		<>
+		<div className="header">
 			<nav>Accueil</nav>
-			<nav>Recette 1</nav>
-			<nav>Recette 2</nav>
-			<nav>Recette 3</nav>
-			<nav>Recette 4</nav>
-			<nav>Recette 5</nav>
-			<nav>Recette 6</nav>
-		</>
+			{recipes.map((recipe) => (
+				<nav key={recipe.id}>{recipe.title}</nav>
+			))}
+		</div>
 	);
 }
