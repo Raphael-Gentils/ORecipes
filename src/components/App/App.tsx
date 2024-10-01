@@ -1,10 +1,12 @@
 import { useState, useCallback, useEffect } from 'react';
-import './App.scss';
-import Menu from '../Menu/Menu';
+import { Routes, Route } from 'react-router-dom';
 import Authentication from '../Authentication/Authentication';
+import Menu from '../Menu/Menu';
 import Recipes from '../Recipes/Recipes';
-import { IRecipe } from '../../@types';
 import Loader from '../Loader/Loader';
+import RecipeDetail from '../RecipeDetail/RecipeDetail';
+import { IRecipe } from '../../@types';
+import './App.scss';
 
 function App() {
 	// ------ récupération des recettes depuis l'API ------
@@ -33,12 +35,28 @@ function App() {
 
 	return (
 		<div className="app">
+			<Authentication />
+
 			<Menu recipes={recipes} />
-			<div className="container">
-				<Authentication />
-				{!recipesLoaded && <Loader />}
-				<Recipes recipes={recipes} />
-			</div>
+
+			{!recipesLoaded && <Loader />}
+
+			<Routes>
+				{recipes.map((recipe) => (
+					<Route
+						key={recipe.id}
+						path="/"
+						element={<Recipes recipes={recipes} />}
+					/>
+				))}
+
+				<Route path="/:slug" element={<RecipeDetail recipes={recipes} />} />
+
+				<Route
+					path="*"
+					element={<div>Page non trouvée / pas encore en place</div>}
+				/>
+			</Routes>
 		</div>
 	);
 }

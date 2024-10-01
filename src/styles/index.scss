@@ -15,7 +15,7 @@ h1, h2 {
   line-height: 1.2;
 }
 
-button {
+button, .button {
   border: none;
   border-radius: 3px;
   padding: .6rem;
@@ -23,4 +23,5 @@ button {
   color: vars.$light-color;
   font-weight: 700;
   font-size: 1rem;
+  text-align: center;
 }

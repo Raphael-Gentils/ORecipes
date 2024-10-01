@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { IRecipe } from '../../@types';
 import './Recipe.scss';
 
@@ -12,7 +13,9 @@ export default function Recipe({ recipe }: RecipeProps) {
 			<div className="description">
 				<h2 className="title">{recipe.title}</h2>
 				<p className="subtitle">Difficulté : {recipe.difficulty}</p>
-				<button type="button">Voir la recette</button>
+				<Link to={recipe.slug} className="button">
+					Voir la recette
+				</Link>
 			</div>
 		</div>
 	);

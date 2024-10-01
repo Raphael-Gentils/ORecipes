@@ -1,19 +1,26 @@
 @use '../../styles/vars';
 
 .menu {
+  position: sticky;
+  top: 0px;
+  max-height: 100vh;
   grid-area: menu;
   background-color: #042031;
   padding: 1.2rem 0 1.2rem 1.2rem;
-  color: vars.$alt-color;
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  font-size: large;
-  font-weight: 500;
+
+  &-link {
+    color: vars.$alt-color;
+    font-weight: 500;
+    font-size: 1.1rem;
+  }
 
   &-link--selected {
     color: #209CEE;
     border-right: 4px solid #209CEE;
     font-weight: 700;
+    font-size: 1.2rem;
   }
 }

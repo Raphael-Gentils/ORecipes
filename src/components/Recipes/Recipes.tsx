@@ -12,11 +12,11 @@ export default function Recipes({ recipes }: RecipesProps) {
 		<div className="main">
 			<h1>Les recettes O'Recipes</h1>
 			<Counter />
-			<ul className="recipes">
+			<div className="recipes">
 				{recipes.map((recipe) => (
 					<Recipe key={recipe.id} recipe={recipe} />
 				))}
-			</ul>
+			</div>
 		</div>
 	);
 }
