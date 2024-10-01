@@ -35,7 +35,7 @@ function App() {
 			<Header recipes={recipes} />
 			<div className="container">
 				<Authentication />
-				<Recipes recipes={recipes} />
+				<Recipes recipes={recipes} isLoaded={recipesLoaded} />
 			</div>
 		</div>
 	);
